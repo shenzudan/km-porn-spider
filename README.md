@@ -7,7 +7,7 @@
 
 #### Environment 
 - python3+
-- mysql5.6+
+- mysql5.6+ (optional)
 
 #### Install dependencies
 * python dependencies
