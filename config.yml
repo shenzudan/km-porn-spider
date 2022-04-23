@@ -1,0 +1,15 @@
+#km endpoint
+endpoint: https://cqhvrtn8sp.com
+#save in db
+save: true
+
+#define database connect configuration
+db:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  pass: root
+  database: km
+
+
+

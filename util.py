@@ -1,13 +1,17 @@
 import hashlib
 import requests
 import json
+import yaml
 #self
 import constant as const
 import AES
 
-
 aes = AES.AES_ENCRYPT()
 
+def getCfg():
+    f = open('config.yml', 'r', encoding='utf-8')
+    cfg = yaml.load(f.read(), Loader=yaml.FullLoader)
+    return cfg
 
 def getParam(json):
     data = aes.encrypt(json)
