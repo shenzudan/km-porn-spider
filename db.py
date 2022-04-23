@@ -19,4 +19,11 @@ def insert(db, data):
                 data['mv_play_height'],
                 data['mv_play_width'])
     print('exec->', sql)
-    cur.execute(sql)
+    try:
+        cur.execute(sql)
+    except Exception as e:
+        print(e)
+    finally:
+        db.commit()
+
+

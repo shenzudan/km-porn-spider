@@ -47,7 +47,6 @@ def run(mode=0):
                 else:
                     print('疑似广告', video)
 
-            conn.commit()
         # 结束当前页记录
 
         # 退出采集条件
