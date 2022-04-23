@@ -13,7 +13,6 @@
 * python dependencies
 ```shell
 pip install requests
-pip install json
 #for mac use: pip install pycryptodome
 pip install pycrypto
 #save videos to db
