@@ -2,7 +2,7 @@
 
 #### Description
 ##### Crawler for 快猫短视频
-##### If the endpoint cannot access, just change it in  `constant.py` 
+##### If the endpoint cannot access, just change it in  `config.yml` 
 
 
 #### Environment 
@@ -19,7 +19,7 @@ pip install pycrypto
 pip install pymysql
 pip install pyyaml
 ```
-* db scripts
+* db scripts(if you don't want to store these videos to mysql, configure save property in `config.yml`)
 ```sql
 CREATE TABLE `videos` (
  `id` bigint(20) NOT NULL,
