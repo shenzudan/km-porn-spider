@@ -1,5 +1,6 @@
 import db
 import km
+import sys
 
 # 测试接口方法是否有效
 import util
@@ -60,6 +61,10 @@ def run(mode=0):
 
 
 if __name__ == '__main__':
+    model = 0
+    if len(sys.argv) > 1:
+        model = sys.argv[1]
+
     cfg = util.getCfg()
-    page, curLen = run()
+    page, curLen = run(model)
     print('本次共采集%s个视频, 共%s页' % (page, curLen))
