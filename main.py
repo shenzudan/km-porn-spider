@@ -45,8 +45,9 @@ def run(mode=0):
     if cfg['save']:
         conn = db.getConn()
         thread_local.conn = conn
-        thread_local = None
         print('初始化sql连接完毕..')
+    else:
+        thread_local = None
 
     pool = ThreadPool(cfg['pool_size'])
     print('线程池最大线程数: %s' % pool.max_num)

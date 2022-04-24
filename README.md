@@ -45,6 +45,12 @@ python main.py
 python main.py 1
 ```
 
+#### Configuration
+- `endpoint`  define the kuaimao endpoint
+- `save`      define whether to store videos
+- `pool_size` define thread num to fetch videos
+- `db`        define configuration to connect with database
+
 #### Contribution
 
 1.  just push
