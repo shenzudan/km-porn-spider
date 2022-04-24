@@ -1,27 +1,28 @@
 import hashlib
-import requests
 import json
-import yaml
-#self
-import constant as const
+import requests
 import AES
+# self
+import constant as const
 
 aes = AES.AES_ENCRYPT()
 
+
 def getCfg():
-    f = open('config.yml', 'r', encoding='utf-8')
-    cfg = yaml.load(f.read(), Loader=yaml.FullLoader)
-    return cfg
+    return const.cfg
+
 
 def getParam(json):
     data = aes.encrypt(json)
     sig = md5('data=%s%s' % (data, const.SIG_KEY))
+
     return 'data=%s&sig=%s' % (data, sig)
 
 
 def md5(text):
     md = hashlib.md5()  # 获取一个md5加密算法对象
     md.update(text.encode('utf-8'))  # 制定需要加密的字符串
+
     return md.hexdigest()
 
 
