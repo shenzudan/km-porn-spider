@@ -34,4 +34,7 @@ def post(url, data):
     }
     response = requests.request("POST", url, headers=headers, data=fd)
 
-    return json.loads(aes.decrypt(response.text))
+    return decrypt(response.text)
+
+def decrypt(hex):
+    return json.loads(aes.decrypt(hex))

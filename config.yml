@@ -2,6 +2,8 @@
 endpoint: https://cqhvrtn8sp.com
 #save in db
 save: false
+#thread num
+pool_size: 16
 
 #define database connect configuration
 db:
