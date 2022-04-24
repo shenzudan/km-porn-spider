@@ -111,6 +111,7 @@ class ThreadPool:
                 # 当任务执行过程中弹出异常
                 result = None
                 success = False
+                print("\033[0;31;40m", 'thread exception', e, "\033[0m")
             # 如果有指定的回调函数
             if callback is not None:
                 # 执行回调函数，并抓取异常

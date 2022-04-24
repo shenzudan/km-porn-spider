@@ -2,6 +2,7 @@ import db
 import km
 import sys
 from TaskQueue import ThreadPool
+import threading
 
 # 测试接口方法是否有效
 import util
@@ -19,21 +20,32 @@ def test():
 
 
 # fetch detail and save in db
-def work(t_name, mid, conn):
+def work(t_name, mid, thread_local):
     # print('[%s]:获取mv[%s]' % (t_name, mid))
     video = km.getDetail(mid)
     print("[%s]:" % t_name, video['mv_id'], video['mv_title'], video['mv_img_url'], video['mv_play_url'])
-    if conn:
-        db.insert(conn, video)
+    # don't save
+    if thread_local is None:
+        return
 
+    if hasattr(thread_local, 'conn'):
+        _conn = thread_local.conn
+    else:
+        print('[%s]:创建新sql链接' % t_name)
+        _conn = db.getConn()
+        thread_local.conn = _conn
+
+    db.insert(_conn, video)
 
 def run(mode=0):
     page = 1
     idSet = set()  # 视频id集合
     lastLen = 0  # 上次循环结束的视频个数
-    conn = None
+    thread_local = threading.local()
     if cfg['save']:
         conn = db.getConn()
+        thread_local.conn = conn
+        thread_local = None
         print('初始化sql连接完毕..')
 
     pool = ThreadPool(cfg['pool_size'])
@@ -52,7 +64,7 @@ def run(mode=0):
                 if 'mv_id' in video:
                     mid = video['mv_id']
                     idSet.add(mid)
-                    pool.put(func=work, args=(mid, conn))
+                    pool.put(func=work, args=(mid, thread_local))
 
                 else:
                     print('疑似广告', video)
