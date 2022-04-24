@@ -1,8 +1,23 @@
 #define km constant
 #main endpoint
+import json
+
 import yaml
+import requests
+
 f = open('config.yml', 'r', encoding='utf-8')
 cfg = yaml.load(f.read(), Loader=yaml.FullLoader)
+
+def fetchDirectEndpoint():
+    url = cfg['endpoint']
+    # allow_redirects= False 这里设置不允许跳转
+    response = requests.get(url=url, allow_redirects=False)
+    if 300 <= response.status_code < 400:
+        end = response.headers['Location']
+        cfg['endpoint'] = end
+        print('解析到新地址: %s' % end)
+
+fetchDirectEndpoint()
 
 ENDPOINT = cfg['endpoint'] + "{0}"
 URL_ALL = "/api/videos/listAll"

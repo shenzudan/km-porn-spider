@@ -1,7 +1,7 @@
 #km endpoint
 endpoint: https://cqhvrtn8sp.com
 #save in db
-save: true
+save: false
 
 #define database connect configuration
 db:
