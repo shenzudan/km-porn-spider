@@ -23,7 +23,8 @@ def test():
 def work(t_name, mid, thread_local):
     # print('[%s]:获取mv[%s]' % (t_name, mid))
     video = km.getDetail(mid)
-    print("[%s]:" % t_name, video['mv_id'], video['mv_title'], video['mv_img_url'], video['mv_play_url'])
+    # print(video)
+    print("[%s]:" % t_name, video['mv_id'], video['mv_title'], video['mu_email'], video['mv_play_url'], video['mv_img_url'])
     # don't save
     if thread_local is None:
         return
@@ -60,7 +61,7 @@ def run(mode=0):
         # 开始处理数据
         if 'list' in data:
             list = data['list']
-            print('当前采集%s页，共有%s个视频' % (page, len(list)))
+            print('当前采集%s页，共有%s个视频，已采集%s个视频' % (page, len(list), len(idSet)))
             for video in list:
                 if 'mv_id' in video:
                     mid = video['mv_id']
@@ -95,4 +96,4 @@ if __name__ == '__main__':
 
     cfg = util.getCfg()
     page, curLen = run(model)
-    print('本次共采集%s个视频, 共%s页' % (page, curLen))
+    print('本次共采集%s个视频, 共%s页' % (curLen, page))
