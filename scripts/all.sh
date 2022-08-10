@@ -2,4 +2,4 @@
 
 cd ../
 conda activate km
-python main.py 1
+python src/main.py 1

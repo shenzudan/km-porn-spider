@@ -9,6 +9,12 @@
 - python3+
 - mysql5.6+ (optional)
 
+#### Generate `requirements.txt`
+# install 
+pip install pipreqs 
+# gen 
+pipreqs . --encoding=utf8 --force
+
 #### Install dependencies
 * python dependencies
 ```shell
@@ -37,6 +43,7 @@ CREATE TABLE `videos` (
 #### Run 
 * import sql scripts
 * configure database in `config.yml`
+* pip install -r requirements.txt
 * start crawl
 ```shell
 #crawl hot videos

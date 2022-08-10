@@ -2,8 +2,6 @@
 conda create -n km python=3.9
 
 conda activate km
+cd ../
+pip install -r requirements.txt
 
-pip install requests
-pip install pycrypto
-pip install pymysql
-pip install pyyaml
