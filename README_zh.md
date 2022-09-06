@@ -13,13 +13,13 @@
 * python 依赖
 ```shell
 pip install requests
-#for mac use: pip install pycryptodome
+#mac使用(win如果出现问题也用这个试试): pip install pycryptodome
 pip install pycrypto
-#save videos to db
+#保存到数据库
 pip install pymysql
-pip install pyyaml
-#downloads
+#下载依赖
 pip install tqdm
+pip install pyyaml
 ```
 * 数据库脚本(如果你不需要保存视频信息到数据库可以不用执行, 在`config.yml`可设置保存属性)
 ```sql
