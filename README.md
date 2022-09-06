@@ -1,4 +1,5 @@
 # km-porn-spider
+[中文文档](README_zh.md)
 
 #### Description
 ##### Crawler for 快猫短视频
@@ -9,17 +10,6 @@
 - python3+
 - mysql5.6+ (optional)
 
-#### Generate `requirements.txt`
-- install 
-```
-    pip install pipreqs 
-```
-
-- gen 
-```
-    pipreqs . --encoding=utf8 --force
-```
-
 #### Install dependencies
 * python dependencies
 ```shell
@@ -29,6 +19,8 @@ pip install pycrypto
 #save videos to db
 pip install pymysql
 pip install pyyaml
+#downloads
+pip install tqdm
 ```
 * db scripts(if you don't want to store these videos to mysql, configure save property in `config.yml`)
 ```sql
@@ -62,6 +54,18 @@ python main.py 1
 - `save`      define whether to store videos
 - `pool_size` define thread num to fetch videos
 - `db`        define configuration to connect with database
+- `download`  define whether download video (thread pool size will be set to 1 when is True)
+
+#### Generate `requirements.txt`
+- install 
+```
+    pip install pipreqs 
+```
+
+- gen 
+```
+    pipreqs . --encoding=utf8 --force
+```
 
 #### Contribution
 

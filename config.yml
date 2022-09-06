@@ -2,6 +2,7 @@
 endpoint: https://cf8bsxme.com
 #save in db
 save: false
+download: True
 #thread num
 pool_size: 16
 

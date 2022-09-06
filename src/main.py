@@ -25,6 +25,10 @@ def work(t_name, mid, thread_local):
     video = km.getDetail(mid)
     # print(video)
     print("[%s]:" % t_name, video['mv_id'], video['mv_title'], video['mu_email'], video['mv_play_url'], video['mv_img_url'])
+    if cfg['download']:
+        fname = 'downloads/%s.mp4' % mid
+        util.download(video['mv_play_url'], fname, video['mv_title'])
+
     # don't save
     if thread_local is None:
         return
@@ -95,5 +99,10 @@ if __name__ == '__main__':
         exit(0)
 
     cfg = util.getCfg()
+    if cfg['download']:
+        cfg['pool_size'] = 1
+        print('开启下载，线程池数量改为1')
+        util.createDirIfNotExist('downloads')
+
     page, curLen = run(model)
     print('本次共采集%s个视频, 共%s页' % (curLen, page))
