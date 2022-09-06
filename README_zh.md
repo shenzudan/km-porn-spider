@@ -10,7 +10,7 @@
 - mysql5.6+ (可选)
 
 #### 安装依赖
-* python dependencies
+* python 依赖
 ```shell
 pip install requests
 #for mac use: pip install pycryptodome
