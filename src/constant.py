@@ -20,14 +20,13 @@ def fetchDirectEndpoint():
         # with open('output.yaml', 'w') as fp:
         #     yaml.dump(cfg, fp)
 
-fetchDirectEndpoint()
+# fetchDirectEndpoint()
 
 ENDPOINT = cfg['endpoint'] + "{0}"
-URL_ALL = ENDPOINT.format("/api/videos/listAll")
-URL_HOT = ENDPOINT.format("/api/videos/listHot")
-URL_DETAIL = ENDPOINT.format("/api/videos/detail")
+URL_VIDEO = ENDPOINT.format("/api/video/index")
+URL_DETAIL = ENDPOINT.format("/api/video/info")
 
-SIG_KEY = "maomi_pass_xyz"
-AES_KEY = b"625202f9149maomi"
-AES_IV  = b"5efd3f6060emaomi"
+SIG_KEY = 'ohI}-bFpD*z8)W7~REusVa]U`YKQ=[C1&XZ."n5:dl<{?@J6NkO+f%c^"$tevxB>j2M_9;G#y3Tw|gL/HS,Pqr0!Ami(49Y_.~Tan#z{5ZLO,_E(7!vJ^HC5_{Xq5$z*'
+AES_KEY = b"x;j/6olSp})&{ZJD"
+AES_IV  = b"znbV%$JN5olCpt<c"
 
